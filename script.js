@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', function() {
         btn.textContent = moduleName;
         btn.dataset.module = moduleName;
         btn.addEventListener('click', (e) => {
-            document.querySelectorAll('.module-btn-group button').forEach(b => b.classList.remove('active'));
+            document.querySelectorAll('.module-btn-group .module-btn').forEach(b => b.classList.remove('active'));
             e.target.classList.add('active');
             displayCases(moduleName);
         });
@@ -63,7 +63,7 @@ document.addEventListener('DOMContentLoaded', function() {
     function displayCases(moduleName) {
         caseContainer.innerHTML = '';
         let filteredCases = allCases.filter(c => c.module === moduleName);
-        shuffleArray(filteredCases); //  随机排序！
+        shuffleArray(filteredCases); //  随机排序病例卡片！
         
         filteredCases.forEach(caseData => {
             const card = document.createElement('div');
@@ -79,6 +79,10 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function showCaseDetail(caseData) {
+        // *** 修正点：随机化选项顺序 ***
+        let shuffledOptions = [...caseData.options]; // 创建选项数组的副本
+        shuffleArray(shuffledOptions); // 打乱副本的顺序
+
         modalBody.innerHTML = `
             <h2>${caseData.title}</h2>
             <div class="case-detail-layout">
@@ -95,7 +99,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     <div class="quiz-section">
                         <h4>${caseData.question}</h4>
                         <div class="options-grid">
-                            ${caseData.options.map(opt => `<button class="option-btn">${opt}</button>`).join('')}
+                            ${shuffledOptions.map(opt => `<button class="option-btn">${opt}</button>`).join('')}
                         </div>
                     </div>
                     <div class="analysis-section">
@@ -133,10 +137,11 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     moduleSelection.addEventListener('click', function(e) {
-        if (e.target.classList.contains('module-btn')) {
+        const targetButton = e.target.closest('.module-btn');
+        if (targetButton) {
             document.querySelectorAll('.module-btn').forEach(btn => btn.classList.remove('active'));
-            e.target.classList.add('active');
-            displayCases(e.target.dataset.module);
+            targetButton.classList.add('active');
+            displayCases(targetButton.dataset.module);
         }
     });
 

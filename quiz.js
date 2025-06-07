@@ -35,6 +35,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
         const caseData = quizCases[currentQuestionIndex];
         progressText.textContent = `进度: ${currentQuestionIndex + 1} / ${quizCases.length}`;
+        
+        // *** 修正点：随机化选项顺序 ***
+        let shuffledOptions = [...caseData.options]; // 创建选项数组的副本
+        shuffleArray(shuffledOptions); // 打乱副本的顺序
 
         quizArea.innerHTML = `
             <div class="case-detail-layout">
@@ -51,7 +55,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     <div class="quiz-section">
                         <h4>${caseData.question}</h4>
                         <div class="options-grid">
-                            ${caseData.options.map(opt => `<button class="option-btn">${opt}</button>`).join('')}
+                            ${shuffledOptions.map(opt => `<button class="option-btn">${opt}</button>`).join('')}
                         </div>
                     </div>
                     <div class="analysis-section">
