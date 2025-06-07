@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>影像读片能力交互式考核 (选择题版)</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>影像读片能力交互式考核</h1>
+            <p>选择模块，点击病例。请根据病史和影像选择最可能的诊断。图片和内容来自F3见习PPT，如有错误请向我回报。</p>
+        </header>
+
+        <nav id="module-selection">
+            </nav>
+
+        <main id="case-container">
+            </main>
+    </div>
+
+    <div id="case-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <div id="modal-body"></div>
+        </div>
+    </div>
+
+    <div id="zoom-modal" class="zoom-modal">
+        <span class="zoom-close">&times;</span>
+        <img class="zoom-modal-content" id="zoomed-img">
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
