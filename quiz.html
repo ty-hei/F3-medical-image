@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>刷题模式</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        #quiz-navigation { text-align: center; margin-top: 20px; }
+        .nav-btn {
+            padding: 12px 30px; font-size: 1.1em; margin: 0 10px;
+            cursor: pointer; border-radius: 25px; border: none;
+            color: white; transition: all 0.3s;
+        }
+        #next-question-btn { background-color: var(--success-color); }
+        #next-question-btn:hover { background-color: #218838; }
+        .end-quiz-btn { background-color: var(--danger-color); text-decoration: none; }
+        .end-quiz-btn:hover { background-color: #c82333; }
+        #quiz-progress { font-size: 1.2em; color: var(--light-text-color); margin-top: 10px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1 id="quiz-header">刷题模式</h1>
+            <div id="quiz-progress"></div>
+        </header>
+
+        <main id="quiz-area" style="min-height: 60vh;">
+            </main>
+
+        <div id="quiz-navigation">
+            <button id="next-question-btn" class="nav-btn" style="display:none;">下一题</button>
+            <a href="index.html" class="nav-btn end-quiz-btn">结束刷题</a>
+        </div>
+    </div>
+
+    <div id="zoom-modal" class="zoom-modal">
+        <span class="zoom-close">&times;</span>
+        <img class="zoom-modal-content" id="zoomed-img">
+    </div>
+
+    <script src="casedata.js"></script>
+    <script src="quiz.js"></script>
+</body>
+</html>
