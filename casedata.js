@@ -339,7 +339,7 @@
         },
         {
             id: 'abd1_case1', module: '腹部(1)', title: '病例1: 男，27岁，吞咽障碍',
-            images: ['images/6._CC腹部（一）见习(1)_slide_39_img_1.png'],
+            images: ['images/c123b686-b3e8-48f4-85d7-580e78617734.png'],
             clinicalInfo: '男，27岁；病史：腹部肿物7年，20天前突然大量呕血，吞咽障碍。',
             question: '最可能的诊断是？',
             options: ['食道静脉曲张', '食管癌', '食管憩室', '食管平滑肌瘤'],
@@ -534,7 +534,7 @@
         },
         {
             id: 'neuro_case8', module: '神经系统', title: '病例8: 女，70岁，左侧肢体乏力',
-            images: ['images/8._2025神经系统见习_slide_62_img_1.png'],
+            images: ['images/akosnfdowndkq121.png'],
             clinicalInfo: '女，70岁。左侧肢体乏力一天半。体查：左侧肢力3~4级。',
             question: '最可能的诊断是？',
             options: ['右额颞叶脑梗塞', '右额颞叶肿瘤', '右额颞叶脑炎', '陈旧性脑梗塞'],
